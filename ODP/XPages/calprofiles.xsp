@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:_layoutBS3 pageTitle="Missing calendar profiles" color="#039fad">
+		<xp:this.facets>
+			<xp:div xp:key="facetHelp">Find databases that cause errors due to a
+				missing calendar profile</xp:div>
+			<xp:div xp:key="facetMiddle">
+				<xp:repeat id="repeat1" rows="30" var="db">
+					<xp:this.value><![CDATA[#{javascript:var dbs = new org.openntf.toolbox.CalendarProfiles();
+return dbs.getDatabases().entrySet();}]]></xp:this.value>
+					<xp:label value="#{javascript:db.getValue();}" id="label1">
+					</xp:label>
+					<xp:br></xp:br>
+				</xp:repeat>
+			</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+</xp:view>
