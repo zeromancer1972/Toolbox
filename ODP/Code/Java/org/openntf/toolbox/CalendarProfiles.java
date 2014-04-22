@@ -29,6 +29,7 @@ public class CalendarProfiles {
 		String entry = "";
 		String database = "";
 		Database testdb = null;
+		Document profile = null;
 		this.dbs = new HashMap<String, Object>();
 		for (Document doc : logs.getAllDocuments()) {
 			// extract the details and store it into a map (avoid doubles)
@@ -43,7 +44,17 @@ public class CalendarProfiles {
 					testdb = XSPUtil.getCurrentSessionAsSigner().getDatabase(
 							XSPUtil.getCurrentDatabase().getServer(), database);
 					if (testdb.isOpen()) {
-						this.dbs.put(database, database);
+						// test if there is no profile
+						profile = testdb.getProfileDocument("CalendarProfile", "");
+						if (profile != null) {
+							// no $BusyName field?
+							if (!profile.hasItem("$BusName")) {
+								this.dbs.put(database, database);
+							}
+						} else {
+							this.dbs.put(database, database);
+						}
+
 					}
 				}
 			}

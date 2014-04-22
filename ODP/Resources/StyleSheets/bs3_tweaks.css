@@ -185,3 +185,7 @@ a.nav-disabled {
 	border-color: #dddddd;
 	cursor: pointer;
 }
+
+.pagination {
+	margin: 0;
+}

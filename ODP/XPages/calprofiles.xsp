@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 
 	<xc:_layoutBS3 pageTitle="Missing calendar profiles"
-		color="#039fad">
+		color="#d89400">
 		<xp:this.facets>
 			<xp:div xp:key="facetHelp">Find databases that cause errors due to a
 				missing calendar profile</xp:div>
@@ -73,7 +73,11 @@ return dbs.getDatabases().entrySet();}]]></xp:this.value>
 							</tr>
 						</xp:repeat>
 					</table>
-
+					<div class="panel-footer">
+						<xp:pager layout="Previous Group Next" partialRefresh="true"
+							id="pager1" for="repeat1">
+						</xp:pager>
+					</div>
 				</div>
 			</xp:div>
 		</xp:this.facets>
