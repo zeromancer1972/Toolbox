@@ -1,18 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 
-	<xc:_layoutBS3 pageTitle="Missing calendar profiles" color="#039fad">
+	<xc:_layoutBS3 pageTitle="Missing calendar profiles"
+		color="#039fad">
 		<xp:this.facets>
 			<xp:div xp:key="facetHelp">Find databases that cause errors due to a
 				missing calendar profile</xp:div>
 			<xp:div xp:key="facetMiddle">
-				<xp:repeat id="repeat1" rows="30" var="db">
-					<xp:this.value><![CDATA[#{javascript:var dbs = new org.openntf.toolbox.CalendarProfiles();
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">Found databases</h4>
+					</div>
+					<table class="panel-body table table-striped table-condensed">
+						<colgroup>
+							<col style="width:75%" />
+							<col style="width:25%" />
+						</colgroup>
+						<tr>
+							<th>Database</th>
+							<th>Action</th>
+						</tr>
+						<xp:repeat id="repeat1" rows="30" var="db">
+							<xp:this.value><![CDATA[#{javascript:var dbs = new org.openntf.toolbox.CalendarProfiles();
 return dbs.getDatabases().entrySet();}]]></xp:this.value>
-					<xp:label value="#{javascript:db.getValue();}" id="label1">
-					</xp:label>
-					<xp:br></xp:br>
-				</xp:repeat>
+							<tr>
+								<td>
+									<xp:label value="#{javascript:db.getValue();}" id="label1">
+									</xp:label>
+								</td>
+								<td>
+									<xp:link escape="true" id="link1" styleClass="btn btn-info"
+										disableTheme="true" title="Open in IBM Notes">
+										<xp:this.attrs>
+											<xp:attr name="data-placement" value="top">
+											</xp:attr>
+											<xp:attr name="data-toggle" value="tooltip">
+											</xp:attr>
+										</xp:this.attrs>
+										<span class="glyphicon glyphicon-book"></span>
+									</xp:link>
+									<xp:link escape="true" id="link2" styleClass="btn btn-success"
+										disableTheme="true" title="Open in a browser">
+										<xp:this.attrs>
+											<xp:attr name="data-placement" value="top">
+											</xp:attr>
+											<xp:attr name="data-toggle" value="tooltip">
+											</xp:attr>
+										</xp:this.attrs>
+										<span class="glyphicon glyphicon-globe"></span>
+									</xp:link>
+									<xp:link escape="true" id="link4" styleClass="btn btn-primary"
+										disableTheme="true" title="Add a profile">
+										<xp:this.attrs>
+											<xp:attr name="data-placement" value="top">
+											</xp:attr>
+											<xp:attr name="data-toggle" value="tooltip">
+											</xp:attr>
+										</xp:this.attrs>
+										<span class="glyphicon glyphicon-plus"></span>
+									</xp:link>
+									<xp:link escape="true" id="link3" styleClass="btn btn-danger"
+										disableTheme="true" title="Delete">
+										<xp:this.attrs>
+											<xp:attr name="data-placement" value="top">
+											</xp:attr>
+											<xp:attr name="data-toggle" value="tooltip">
+											</xp:attr>
+										</xp:this.attrs>
+										<span class="glyphicon glyphicon-trash"></span>
+									</xp:link>
+								</td>
+							</tr>
+						</xp:repeat>
+					</table>
+
+				</div>
 			</xp:div>
 		</xp:this.facets>
 	</xc:_layoutBS3>

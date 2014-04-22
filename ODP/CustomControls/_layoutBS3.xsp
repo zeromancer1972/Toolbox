@@ -76,7 +76,7 @@ if(url.indexOf(".xsp")==-1){
 	<div id="content" class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<div class="col-lg-8" style="background-color:#fff">
+				<div class="col-lg-12" style="background-color:#fff">
 				<xp:panel tagName="h1" disableTheme="true">
 					<xp:text escape="true" id="computedField3"
 						disableTheme="true"
@@ -86,12 +86,7 @@ if(url.indexOf(".xsp")==-1){
 						id="facetMiddle">
 					</xp:callback>
 				</div>
-				<div class="col-lg-4" id="rightcol">
-					<xp:callback facetName="facetLeft" id="facetLeft"></xp:callback>
-					<xp:callback facetName="facetRight"
-						id="facetRight">
-					</xp:callback>
-				</div>
+				
 			</div>
 		</div>
 	</div>

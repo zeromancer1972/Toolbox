@@ -1,5 +1,11 @@
 // core JS
 
+$(document).ready( function() {
+	$("[data-toggle=tooltip]").tooltip( {
+
+	});
+});
+
 function createCookie(name, value, days) {
 	if (days) {
 		var date = new Date();

@@ -1,5 +1,5 @@
 body {
-	background-color:#f0f0f0;
+	background-color: #f0f0f0;
 }
 
 h1,h2 {
@@ -55,6 +55,10 @@ h1,h2 {
 
 .actionbar .btn {
 	margin-right: 4px;
+}
+
+div+.btn {
+	margin-left: 5px;
 }
 
 .btn-custom-green {

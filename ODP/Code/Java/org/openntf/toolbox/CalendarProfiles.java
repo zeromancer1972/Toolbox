@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.openntf.domino.Database;
 import org.openntf.domino.Document;
 import org.openntf.domino.View;
 import org.openntf.domino.utils.XSPUtil;
@@ -27,6 +28,7 @@ public class CalendarProfiles {
 				XSPUtil.getCurrentDatabase().getServer(), "log.nsf").getView(this.eventsView);
 		String entry = "";
 		String database = "";
+		Database testdb = null;
 		this.dbs = new HashMap<String, Object>();
 		for (Document doc : logs.getAllDocuments()) {
 			// extract the details and store it into a map (avoid doubles)
@@ -37,7 +39,12 @@ public class CalendarProfiles {
 					database = entry.substring(
 							entry.indexOf(this.PATTERN_SEARCH) + this.PATTERN_SEARCH.length(),
 							entry.lastIndexOf(":")).trim();
-					this.dbs.put(database, database);
+					// test if database exists and can be deleted
+					testdb = XSPUtil.getCurrentSessionAsSigner().getDatabase(
+							XSPUtil.getCurrentDatabase().getServer(), database);
+					if (testdb.isOpen()) {
+						this.dbs.put(database, database);
+					}
 				}
 			}
 		}
