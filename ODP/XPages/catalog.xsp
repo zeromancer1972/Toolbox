@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
-	xmlns:xc="http://www.ibm.com/xsp/custom">
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 
-	<xc:_layoutBS3 color="#ff2699" pageTitle="Database Catalog"></xc:_layoutBS3></xp:view>
+	<xc:_layoutBS3 color="#ff2699" pageTitle="Database Catalog">
+		<xp:this.facets>
+			<xp:div xp:key="facetHelp">
+			List all databases on the current server
+			</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+</xp:view>
