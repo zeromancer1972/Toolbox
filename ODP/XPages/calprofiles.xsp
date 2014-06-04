@@ -13,12 +13,14 @@
 					</div>
 					<table class="panel-body table table-striped table-condensed">
 						<colgroup>
-							<col style="width:75%" />
-							<col style="width:25%" />
+							<col style="width:80%" />
+							<col style="width:20%" />
 						</colgroup>
 						<tr>
 							<th>Database</th>
-							<th>Action</th>
+							<th>
+								<span class="pull-right">Action</span>
+							</th>
 						</tr>
 						<xp:repeat id="repeat1" rows="30" var="db">
 							<xp:this.value><![CDATA[#{javascript:var dbs = new org.openntf.toolbox.CalendarProfiles();
@@ -29,46 +31,52 @@ return dbs.getDatabases().entrySet();}]]></xp:this.value>
 									</xp:label>
 								</td>
 								<td>
-									<xp:link escape="true" id="link1" styleClass="btn btn-info"
-										disableTheme="true" title="Open in IBM Notes">
-										<xp:this.attrs>
-											<xp:attr name="data-placement" value="top">
-											</xp:attr>
-											<xp:attr name="data-toggle" value="tooltip">
-											</xp:attr>
-										</xp:this.attrs>
-										<span class="glyphicon glyphicon-book"></span>
-									</xp:link>
-									<xp:link escape="true" id="link2" styleClass="btn btn-success"
-										disableTheme="true" title="Open in a browser">
-										<xp:this.attrs>
-											<xp:attr name="data-placement" value="top">
-											</xp:attr>
-											<xp:attr name="data-toggle" value="tooltip">
-											</xp:attr>
-										</xp:this.attrs>
-										<span class="glyphicon glyphicon-globe"></span>
-									</xp:link>
-									<xp:link escape="true" id="link4" styleClass="btn btn-primary"
-										disableTheme="true" title="Add a profile">
-										<xp:this.attrs>
-											<xp:attr name="data-placement" value="top">
-											</xp:attr>
-											<xp:attr name="data-toggle" value="tooltip">
-											</xp:attr>
-										</xp:this.attrs>
-										<span class="glyphicon glyphicon-plus"></span>
-									</xp:link>
-									<xp:link escape="true" id="link3" styleClass="btn btn-danger"
-										disableTheme="true" title="Delete">
-										<xp:this.attrs>
-											<xp:attr name="data-placement" value="top">
-											</xp:attr>
-											<xp:attr name="data-toggle" value="tooltip">
-											</xp:attr>
-										</xp:this.attrs>
-										<span class="glyphicon glyphicon-trash"></span>
-									</xp:link>
+									<span class="pull-right">
+										<xp:link escape="true" id="link1" styleClass="btn btn-info"
+											disableTheme="true" title="Open in IBM Notes">
+											<xp:this.attrs>
+												<xp:attr name="data-placement" value="top">
+												</xp:attr>
+												<xp:attr name="data-toggle" value="tooltip">
+												</xp:attr>
+											</xp:this.attrs>
+											<span class="glyphicon glyphicon-book"></span>
+											<xp:eventHandler
+												event="onclick" submit="false">
+												<xp:this.script><![CDATA[var target = "notes://#{javascript:try { var path = db.getValue(); var target = session.getDatabase(database.getServer(), path); return target.getReplicaID() } catch(e) {}}";
+location.href = target;]]></xp:this.script>
+											</xp:eventHandler></xp:link>
+										<xp:link escape="true" id="link2" styleClass="btn btn-success"
+											disableTheme="true" title="Open in a browser">
+											<xp:this.attrs>
+												<xp:attr name="data-placement" value="top">
+												</xp:attr>
+												<xp:attr name="data-toggle" value="tooltip">
+												</xp:attr>
+											</xp:this.attrs>
+											<span class="glyphicon glyphicon-globe"></span>
+										</xp:link>
+										<xp:link escape="true" id="link4" styleClass="btn btn-primary"
+											disableTheme="true" title="Add a profile">
+											<xp:this.attrs>
+												<xp:attr name="data-placement" value="top">
+												</xp:attr>
+												<xp:attr name="data-toggle" value="tooltip">
+												</xp:attr>
+											</xp:this.attrs>
+											<span class="glyphicon glyphicon-plus"></span>
+										</xp:link>
+										<xp:link escape="true" id="link3" styleClass="btn btn-danger"
+											disableTheme="true" title="Delete">
+											<xp:this.attrs>
+												<xp:attr name="data-placement" value="top">
+												</xp:attr>
+												<xp:attr name="data-toggle" value="tooltip">
+												</xp:attr>
+											</xp:this.attrs>
+											<span class="glyphicon glyphicon-trash"></span>
+										</xp:link>
+									</span>
 								</td>
 							</tr>
 						</xp:repeat>

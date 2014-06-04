@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Navigation implements Serializable {
+public class Tools implements Serializable {
 
 	private static final long serialVersionUID = 8031965383531253276L;
 	private final List<Page> navigation;
 
-	public Navigation() {
+	public Tools() {
 		this.navigation = new ArrayList<Page>();
-		this.navigation.add(new Page("About", "about.xsp", "glyphicon glyphicon-info-sign", false));
+		this.navigation.add(new Page("Catalog", "catalog.xsp", "glyphicon glyphicon-list", false));
+		this.navigation.add(new Page("Calendar profiles", "calprofiles.xsp", "glyphicon glyphicon-calendar", false));
 	}
 
 	public List<Page> getNavigation() {

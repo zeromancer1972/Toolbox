@@ -8,6 +8,13 @@
 			view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
+    <managed-bean-name>tools</managed-bean-name>
+    <managed-bean-class>org.openntf.bstemplate.Tools
+		</managed-bean-class>
+    <managed-bean-scope>
+			view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
     <managed-bean-name>footer</managed-bean-name>
     <managed-bean-class>org.openntf.bstemplate.NavigationFooter
 		</managed-bean-class>
